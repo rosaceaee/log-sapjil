@@ -1,9 +1,48 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-article{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.ant-row {
+  &.content-wrap {
+    .ant-space {
+      width: 100%;
+    }
+    .ant-col {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    .menu-wrap {
+      h3 {
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+    }
+
+    .nav-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      div {
+        height: 50px;
+        display: inherit;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .naiyou-wrap {
+      height: 50vh;
+      padding: 1rem 2rem;
+      line-height: 1.8;
+    }
+  }
 }
