@@ -29,15 +29,23 @@ const Typing = () => {
   //   },
   // });
 
+  function getBold(txt) {
+    const type = txt.getText();
+    if (!type) {
+      return "text-bold";
+    }
+    return "blue";
+  }
+
   return (
     <div style={{ width: "100%", height: 300 }}>
       {/* <input value={value} onChange={onChange} />; */}
       <Editor
         editorState={editorState}
         textAlignment="center"
+        blockStyleFn={getBold}
         onChange={setEditorState}
       />
-      ;
     </div>
   );
 };

@@ -37,7 +37,7 @@ const Main = () => {
 
   const transfer = [txt, setTxt];
 
-  return (
+  return ( 
     <>
       <Menu items={menulist} mode="horizontal" />
       <Row className="content-wrap">

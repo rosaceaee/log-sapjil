@@ -46,3 +46,16 @@
     }
   }
 }
+
+.text {
+  &-bold {
+    font-weight: 700;
+    &__orgRd {
+      color: orangered;
+    }
+  }
+}
+
+.blue {
+  color: palegreen;
+}
