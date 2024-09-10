@@ -2,7 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 
 import { Button, Col, Row, Switch, Space, Menu } from "antd";
 import ReactDOM from "react-dom";
-import { Editor, EditorState, RichUtils, Immutable } from "draft-js";
+import {
+  Editor,
+  EditorState,
+  RichUtils,
+  Immutable,
+  getDefaultKeyBinding,
+  KeyBindingUtil,
+} from "draft-js";
 import "draft-js/dist/Draft.css";
 
 const Typing = () => {
@@ -11,6 +18,7 @@ const Typing = () => {
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
+  const { hasCommandModifier } = KeyBindingUtil;
 
   const Blockkk = (propp) => {
     return (
@@ -31,20 +39,90 @@ const Typing = () => {
 
   function getBold(txt) {
     const type = txt.getText();
+
     if (!type) {
       return "text-bold";
     }
-    return "blue";
   }
+
+  function myKeyBindingFn(txt) {
+    if (txt.keyCode === 13) {
+      return "enter";
+    }
+    return getDefaultKeyBinding(txt);
+  }
+
+  // buttons to deocrate
+  const blockBtn = [
+    {
+      value: "H1",
+      block: "header-one",
+    },
+
+    {
+      value: "H2",
+      block: "header-two",
+    },
+
+    {
+      value: "H3",
+      block: "header-three",
+    },
+
+    {
+      value: "div",
+      block: "div",
+    },
+
+    {
+      value: "ul",
+      block: "unordered-list-item",
+    },
+
+    {
+      value: "ol",
+      block: "ordered-list-item",
+    },
+  ];
+
+  const stylingTxtBtn = [
+    {
+      value: "red",
+      block: "color-red",
+    },
+
+    {
+      value: "H2",
+      block: "header-two",
+    },
+  ];
 
   return (
     <div style={{ width: "100%", height: 300 }}>
-      {/* <input value={value} onChange={onChange} />; */}
+      <section className="container-btn-style">
+        {blockBtn.map((val, idx) => {
+          return (
+            <div key={idx} className="box-blocks">
+              <input type="button" value={val.value} />
+            </div>
+          );
+        })}
+
+        {stylingTxtBtn.map((val, idx) => {
+          return (
+            <div key={idx} className="box-style">
+              <input type="button" value={val.value} />
+            </div>
+          );
+        })}
+      </section>
       <Editor
         editorState={editorState}
         textAlignment="center"
         blockStyleFn={getBold}
+        keyBindingFn={myKeyBindingFn}
         onChange={setEditorState}
+        placeholder="write sth"
       />
     </div>
   );
