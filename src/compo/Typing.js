@@ -92,29 +92,33 @@ const Typing = () => {
     },
 
     {
-      value: "H2",
-      block: "header-two",
+      value: "bold",
+      block: "bold",
     },
   ];
 
   return (
     <div style={{ width: "100%", height: 300 }}>
       <section className="container-btn-style">
-        {blockBtn.map((val, idx) => {
-          return (
-            <div key={idx} className="box-blocks">
-              <input type="button" value={val.value} />
-            </div>
-          );
-        })}
+        <div className="box">
+          {blockBtn.map((val, idx) => {
+            return (
+              <div key={idx} className="box-blocks">
+                <input type="button" value={val.value} />
+              </div>
+            );
+          })}
+        </div>
 
-        {stylingTxtBtn.map((val, idx) => {
-          return (
-            <div key={idx} className="box-style">
-              <input type="button" value={val.value} />
-            </div>
-          );
-        })}
+        <div className="box">
+          {stylingTxtBtn.map((val, idx) => {
+            return (
+              <div key={idx} className="box-style">
+                <input type="button" value={val.value} />
+              </div>
+            );
+          })}
+        </div>
       </section>
       <Editor
         editorState={editorState}

@@ -51,18 +51,24 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+
   .box {
-    justify-content: space-around;
-    align-items: center;
     display: flex;
 
-    input {
-      padding: 10px 20px;
-    }
     &-blocks {
+      display: block;
+      width: 100%;
+
+      input {
+        padding: 10px 20px;
+      }
     }
     &-style {
+      display: block;
+      border: 1px solid;
+      input {
+        padding: 10px 20px;
+      }
     }
   }
 }
