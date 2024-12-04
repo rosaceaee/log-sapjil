@@ -47,9 +47,9 @@ const Typing = () => {
 
   function myKeyBindingFn(txt) {
     if (txt.keyCode === 13) {
-      return "enter";
+      return getDefaultKeyBinding(txt);
     }
-    return getDefaultKeyBinding(txt);
+    // return getDefaultKeyBinding(txt);
   }
 
   // buttons to deocrate
