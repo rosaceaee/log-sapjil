@@ -42,12 +42,15 @@ const Typing = () => {
 
     if (!type) {
       return "text-bold";
+    } else {
+      return "color-red";
     }
   }
 
   function myKeyBindingFn(txt) {
     if (txt.keyCode === 13) {
       return getDefaultKeyBinding(txt);
+    } else {
     }
     // return getDefaultKeyBinding(txt);
   }
@@ -110,12 +113,17 @@ const Typing = () => {
 
         {stylingTxtBtn.map((val, idx) => {
           return (
-            <div key={idx} className="box-style">
+            // <div key={idx} className="box-style">
+            //   <input type="button" value={val.value} />
+            // </div>
+
+            <div key={idx} className={val.block}>
               <input type="button" value={val.value} />
             </div>
           );
         })}
       </section>
+
       <Editor
         editorState={editorState}
         textAlignment="center"

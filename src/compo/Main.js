@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, useMemo } from "react";
 import { Button, Col, Row, Switch, Space, Menu } from "antd";
 import { HeartFilled } from "@ant-design/icons";
 
 import Typing from "./Typing";
 import "../style/index.scss";
 
-const Main = () => {
+const Main = ({ ell }) => {
   const [txt, setTxt] = useState("");
-
+  const [num, setNum] = ell;
   const menulist = [{ label: "a" }, { label: "b" }];
   const getData = (item) => {
     const bookmarkList = localStorage.getItem(".ql-editor") || "[]";
@@ -37,14 +37,22 @@ const Main = () => {
 
   const transfer = [txt, setTxt];
 
-  return ( 
+  // const [num, setNum] = useState(0);
+  // const [numzz, setNumzz] = useState(num + 1);
+  const mem = () => {
+    setNum((el) => el + 1);
+  };
+
+  return (
     <>
       <Menu items={menulist} mode="horizontal" />
       <Row className="content-wrap">
         <Col span={1}>
           <div className="nav-wrap">
             <div>
-              <HeartFilled />
+              <button type="button" onClick={mem}>
+                {num} 입니다.
+              </button>
             </div>
             <div>
               <HeartFilled />
