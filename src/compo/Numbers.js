@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useContext, useMemo } from "react";
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useMemo,
+  useReducer,
+} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import styled from "styled-components";
@@ -16,37 +22,78 @@ const Wrap = styled.div`
 
 const list = ["a", "b", "c"];
 
+const initialState = {
+  ten: numData.ten.map(() => false),
+  hundreds: numData.hundreds.map(() => false),
+  thousands: numData.thousands.map(() => false),
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "TOGGLE":
+      const { section, index } = action.payload;
+      return {
+        ...state,
+        [section]: state[section].map((value, i) =>
+          i === index ? !value : value
+        ),
+      };
+    default:
+      return state;
+  }
+}
+
 export const Numbers = () => {
-  const [isTouched, setIsTouched] = useState(false);
-  const handleClick = () => {
-    setIsTouched(!isTouched);
+  const [isTouched, setIsTouched] = useState(numData.ten.map(() => false));
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleClick = (section, index) => {
+    dispatch({
+      type: "TOGGLE",
+      payload: { section, index },
+    });
   };
-  //   const str = JSON.stringify(numData[0].date);
-  const dates = numData.map((item) => JSON.stringify(item.date));
-  const Test = () => {
-    return (
-      <>
-        {numData.map((itm, idx) => {
-          // JSON.stringify(itm.date);
-          return (
-            <>
-              <button
-                className={`yomikata ${isTouched ? "touched" : ""}`}
-                onClick={handleClick}
-              >
-                <strong>
-                  {isTouched
-                    ? JSON.stringify(itm.title)
-                    : JSON.stringify(itm.date)}
-                </strong>
-              </button>
-            </>
-          );
-        })}
-        {/* {isTouched ? "sip" : "ten"} */}
-      </>
-    );
+  const setClickState = (idx) => {
+    setIsTouched((prevStates) => {
+      const newStates = [...prevStates];
+      newStates[idx] = !newStates[idx];
+      return newStates;
+    });
   };
+  const renderSection = (sectionName) => (
+    <div>
+      <h2>{sectionName}</h2>
+      {numData[sectionName].map((item, index) => (
+        <div key={index}>
+          <button
+            className={`yomikata ${state[sectionName][index] ? "touched" : ""}`}
+            onClick={() => handleClick(sectionName, index)}
+          >
+            <strong>
+              {state[sectionName][index] ? item.title : item.date}
+            </strong>
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+
+  //   const CheckReadAnswerBox = () => {
+  //     return (
+  //       <>
+  //         {numData.ten.map((item, index) => (
+  //           <div key={index}>
+  //             <button
+  //               className={`yomikata ${isTouched[index] ? "touched" : ""}`}
+  //               onClick={() => setClickState(index)}
+  //             >
+  //               <strong>{isTouched[index] ? item.title : item.date}</strong>
+  //             </button>
+  //           </div>
+  //         ))}
+  //       </>
+  //     );
+  //   };
 
   //   버튼 클릭 - 클래스 유무 체크 - 없을시 1 텍스트 리턴 - 있을시 0 텍스트 리턴
   return (
@@ -69,23 +116,18 @@ export const Numbers = () => {
         style={{ height: "100%" }}
       >
         <SwiperSlide>
-          <section className="">
+          <section>
             <h2> binary </h2>
             <div className="num-card">
               <p>10</p>
-
-              <Test />
-              {/* <button
-                className={`yomikata ${isTouched ? "touched" : ""}`}
-                onClick={handleClick}
-              >
-                {isTouched ? "sip" : "ten"}
-              </button> */}
+              {renderSection("ten")}
+              {renderSection("hundreds")}
+              {renderSection("thousands")}
             </div>
           </section>
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide></SwiperSlide>
+        <SwiperSlide>aas</SwiperSlide>
       </Swiper>
       <div className="pagi"></div>
     </Wrap>
