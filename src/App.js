@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useMemo } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Main from "./compo/Main";
+import { Numbers } from "./compo/Numbers";
 
 function App() {
   const [num, setNum] = useState(0);
@@ -15,15 +16,16 @@ function App() {
 
   // Computed();
 
-  const computedValue = useMemo(() => {
-    console.log("computed val" + num * 2);
-    return num * 2;
-  }, [num]);
+  // const computedValue = useMemo(() => {
+  //   console.log("computed val" + num * 2);
+  //   return num * 2;
+  // }, [num]);
 
-  const ell = { num, setNum, computedValue };
+  // const ell = { num, setNum, computedValue };
   return (
     <div className="App">
-      <Main {...ell} />
+      {/* <Main {...ell} /> */}
+      <Numbers />
     </div>
   );
 }

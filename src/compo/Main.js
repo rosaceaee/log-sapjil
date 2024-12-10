@@ -5,7 +5,6 @@ import { HeartFilled } from "@ant-design/icons";
 import Typing from "./Typing";
 import "../style/index.scss";
 
-const Main = ({ ell }) => {
   const [txt, setTxt] = useState("");
   const [num, setNum] = ell;
   const menulist = [{ label: "a" }, { label: "b" }];
