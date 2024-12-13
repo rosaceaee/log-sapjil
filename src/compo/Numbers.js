@@ -167,6 +167,12 @@ export const Numbers = () => {
               <div className="bg">.</div>
               <div className="desc-wrap__work">
                 <span className="title-wrap">
+                  <div className="label-wrap">
+                    <span className="label vailla">js</span>
+                    <span className="label react">node</span>
+                    <span className="label pug">pug</span>
+                  </div>
+
                   <h3>product name</h3>
                   <a href=""> Link </a>
                 </span>
