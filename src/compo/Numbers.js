@@ -164,8 +164,8 @@ export const Numbers = () => {
         <Swiper
           direction="vertical"
           slidesPerView={1}
-          spaceBetween={30}
-          mousewheel={true}
+          spaceBetween={10}
+          mousewheel={false}
           pagination={{
             el: ".pagi",
             clickable: true,

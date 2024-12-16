@@ -147,11 +147,13 @@
 }
 
 .swiper-slide {
-  height: calc(100vh - 100px) !important;
+  height: calc(80vh - 100px) !important;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 100px;
+  margin-left: 20px;
+  overflow-y: auto;
 }
 
 .card-btn {
@@ -161,7 +163,7 @@
   align-items: center;
   margin: 1rem 0 0;
   .yomikata {
-    padding: 1rem 2rem;
+    padding: 1rem;
     background: #333;
     color: #fff;
     font-size: 1rem;
@@ -170,6 +172,7 @@
     &.touched {
       background: #fff;
       color: #333;
+      height: 70px;
     }
   }
 }
