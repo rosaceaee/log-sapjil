@@ -20,7 +20,7 @@ const Wrap = styled.div`
   border: 2px solid red;
 `;
 
-const list = ["10 ~", "100 ~ ", "1000 ~ "];
+const list = ["10", "100", "1000"];
 
 const initialState = {
   ten: numData.ten.map(() => false),
@@ -62,30 +62,50 @@ export const Numbers = () => {
   //       return newStates;
   //     });
   //   };
-  const renderSection = (sectionName) => (
-    <div>
-      <h2>{sectionName}</h2>
-      {numData[sectionName].map((item, index) => (
-        <div key={index} className="card-btn">
-          <h3>{item.date}</h3>
-          <button
-            className={`yomikata ${state[sectionName][index] ? "touched" : ""}`}
-            onClick={() => handleClick(sectionName, index)}
-          >
-            <strong>
-              {state[sectionName][index] ? item.title : item.date}
-            </strong>
-          </button>
-        </div>
-      ))}
-    </div>
-  );
+
+  const renderSection = (sectionName) => {
+    const shouldShowItem = (index) => {
+      if (sectionName === "ten") {
+        return [0, 10, 20, 30, 40, 50, 60, 70, 80, 90].includes(index);
+      }
+      // 나머지 모든 항목 표시
+      return true;
+    };
+
+    return (
+      <div>
+        <h2>{sectionName}</h2>
+        {numData[sectionName].map((item, index) => {
+          if (!shouldShowItem(index)) {
+            return null;
+          }
+
+          return (
+            <div key={index} className="card-btn">
+              <h3>{item.date}</h3>
+              <button
+                className={`yomikata ${
+                  state[sectionName][index] ? "touched" : ""
+                }`}
+                // state = 현재 상태
+                onClick={() => handleClick(sectionName, index)}
+              >
+                <strong>
+                  {state[sectionName][index] ? item.title : item.date}
+                </strong>
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
 
   const filterMatchingTen = () => {
     const matchingItem = numData.ten.find(
       (item) => item.date === String(input)
     );
-    return matchingItem?.title || "null";
+    return matchingItem?.title || "";
   };
 
   const filterMatchingData = () => {
@@ -95,7 +115,7 @@ export const Numbers = () => {
         return matchingItem.title;
       }
     }
-    return "null";
+    return <span className="error-msg">숫자를 입력해주세요.</span>;
   };
 
   const handleInputChange = (e) => {
@@ -128,7 +148,7 @@ export const Numbers = () => {
             type="number"
             pattern="\d*"
             inputmode="numeric"
-            placeholder="write"
+            placeholder="예: 10"
             value={input}
             onChange={handleInputChange}
             name="number to eng"
