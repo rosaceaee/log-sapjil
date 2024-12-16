@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Main from "./compo/Main";
 import { Numbers } from "./compo/Numbers";
-
+import AnimateExample from "./compo/AnimateExample";
 function App() {
   const [num, setNum] = useState(0);
 

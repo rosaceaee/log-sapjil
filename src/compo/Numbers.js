@@ -20,7 +20,7 @@ const Wrap = styled.div`
   border: 2px solid red;
 `;
 
-const list = ["10", "100", "1000"];
+const list = ["10 ~", "100 ~ ", "1000 ~ "];
 
 const initialState = {
   ten: numData.ten.map(() => false),
@@ -88,6 +88,16 @@ export const Numbers = () => {
     return matchingItem?.title || "null";
   };
 
+  const filterMatchingData = () => {
+    for (let category of Object.values(numData)) {
+      const matchingItem = category.find((item) => item.date === String(input));
+      if (matchingItem) {
+        return matchingItem.title;
+      }
+    }
+    return "null";
+  };
+
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
@@ -113,6 +123,24 @@ export const Numbers = () => {
   return (
     <>
       <Wrap>
+        <div className="input-area">
+          <input
+            type="number"
+            pattern="\d*"
+            inputmode="numeric"
+            placeholder="write"
+            value={input}
+            onChange={handleInputChange}
+            name="number to eng"
+            className="search"
+          />
+          {filterMatchingData() && (
+            <div className="showNum-box">
+              <h3>{filterMatchingData()}</h3>
+            </div>
+          )}
+        </div>
+
         <Swiper
           direction="vertical"
           slidesPerView={1}
@@ -135,18 +163,8 @@ export const Numbers = () => {
               <h2> binary </h2>
               <div className="num-card">
                 <p>10</p>
-                {/* 
-                temporary button 
-                {renderSection("ten")} */}
+                {renderSection("ten")}
               </div>
-              <input
-                type="text"
-                placeholder="write"
-                value={input}
-                onChange={handleInputChange}
-                className="search"
-              />
-              {filterMatchingTen() && <p>{filterMatchingTen()}</p>}
             </section>
           </SwiperSlide>
           <SwiperSlide>
@@ -161,7 +179,7 @@ export const Numbers = () => {
         <div className="pagi"></div>
 
         {/* 이하 임시  */}
-        <div>
+        {/* <div>
           <Wrap>
             <section className="wrap-work">
               <div className="bg">.</div>
@@ -190,7 +208,7 @@ export const Numbers = () => {
               </div>
             </section>
           </Wrap>
-        </div>
+        </div> */}
       </Wrap>
     </>
   );
