@@ -3,9 +3,8 @@
   padding: 0;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+.App {
+  overflow: hidden !important;
 }
 
 .ant-row {
@@ -131,20 +130,26 @@
 }
 
 .pagi h3 {
-  color: orange;
+  color: #fff;
+  background: #332e3c;
   font-weight: 700;
   cursor: pointer;
   width: 55px;
   height: 55px;
-  border-radius: 50%;
-  border: 1px solid;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
 }
 
 .pagi h3.swiper-pagination-bullet-active {
-  color: red;
+  color: #332e3c;
+  background-color: #fff;
 }
 
 .swiper {
@@ -158,13 +163,13 @@
 
 .card-wrap {
   overflow: auto;
-  padding-bottom: 6rem;
+  padding-bottom: 10rem;
 }
 
 .num-card {
   height: 100%;
-  padding: 75px 0 60px;
-  margin-left: 20px;
+  padding: 100px 0 0;
+  margin-left: 70px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -178,6 +183,7 @@
   // grid-template-columns: 35% 55%;
   align-items: center;
   margin: 1rem 0 0;
+
   .yomikata {
     padding: 1rem;
     background: #333;
@@ -185,10 +191,14 @@
     font-size: 1rem;
     border-radius: 10px;
     width: 200px;
+    letter-spacing: 10px;
     &.touched {
       background: #fff;
       color: #333;
       width: 200px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      font-size: 1.2rem;
     }
   }
 }
@@ -268,4 +278,10 @@
 
 .error-msg {
   font-size: 1rem;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 1.4rem auto;
 }

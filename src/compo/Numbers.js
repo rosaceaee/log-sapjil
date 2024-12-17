@@ -17,7 +17,7 @@ const Wrap = styled.div`
   width: calc(100% - calc(48 / 16 * 1rem));
   height: 100vh;
   padding: 0 30px;
-  border: 2px solid red;
+  overflow-y: hidden;
 `;
 
 const list = ["10", "100", "1000"];
@@ -77,7 +77,7 @@ export const Numbers = () => {
 
     return (
       <div className="card-wrap">
-        <h2>{sectionName}</h2>
+        {/* <h2>{sectionName}</h2> */}
         {numData[sectionName].map((item, index) => {
           if (!shouldShowItem(index)) {
             return null;
@@ -185,20 +185,19 @@ export const Numbers = () => {
         >
           <SwiperSlide>
             <section className="num-card">
-              <h2>binary</h2>
-              <p>10</p>
+              <p className="title">10의 자리</p>
               {renderSection("ten")}
             </section>
           </SwiperSlide>
           <SwiperSlide>
             <section className="num-card">
-              <p>100</p>
+              <p className="title">100의 자리</p>
               {renderSection("hundreds")}
             </section>
           </SwiperSlide>
           <SwiperSlide>
             <section className="num-card">
-              <p>1000</p>
+              <p className="title">1000의 자리</p>
               {renderSection("thousands")}
             </section>
           </SwiperSlide>
