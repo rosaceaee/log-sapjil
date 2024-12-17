@@ -153,20 +153,22 @@
 }
 
 .swiper-slide {
-  // height: calc(80vh - 100px) !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 75px 0 60px;
-  margin-left: 20px;
-  overflow-y: auto;
-  height: calc(90vh - 2rem) !important;
+  height: 100% !important;
+}
+
+.card-wrap {
+  overflow: auto;
+  padding-bottom: 6rem;
 }
 
 .num-card {
+  height: 100%;
+  padding: 75px 0 60px;
+  margin-left: 20px;
+  overflow-y: auto;
   display: flex;
-  justify-content: center;
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-btn {

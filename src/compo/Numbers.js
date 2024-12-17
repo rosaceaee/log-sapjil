@@ -15,6 +15,7 @@ import "swiper/css/navigation";
 
 const Wrap = styled.div`
   width: calc(100% - calc(48 / 16 * 1rem));
+  height: 100vh;
   padding: 0 30px;
   border: 2px solid red;
 `;
@@ -75,7 +76,7 @@ export const Numbers = () => {
     };
 
     return (
-      <div>
+      <div className="card-wrap">
         <h2>{sectionName}</h2>
         {numData[sectionName].map((item, index) => {
           if (!shouldShowItem(index)) {
@@ -168,6 +169,8 @@ export const Numbers = () => {
           slidesPerView={1}
           spaceBetween={30}
           mousewheel={false}
+          allowTouchMove={false}
+          noSwiping={true}
           pagination={{
             el: ".pagi",
             clickable: true,
@@ -180,24 +183,24 @@ export const Numbers = () => {
           modules={[Pagination]}
           style={{ height: "100%" }}
         >
-          <SwiperSlide className="swiper-no-swiping">
-            <section>
-              <h2> binary </h2>
-              <div className="num-card">
-                <p>10</p>
-                {renderSection("ten")}
-              </div>
+          <SwiperSlide>
+            <section className="num-card">
+              <h2>binary</h2>
+              <p>10</p>
+              {renderSection("ten")}
             </section>
           </SwiperSlide>
-          <SwiperSlide className="swiper-no-swiping">
-            <div className="num-card">
+          <SwiperSlide>
+            <section className="num-card">
               <p>100</p>
               {renderSection("hundreds")}
-            </div>
+            </section>
           </SwiperSlide>
           <SwiperSlide>
-            <p>1000</p>
-            <div className="num-card">{renderSection("thousands")}</div>
+            <section className="num-card">
+              <p>1000</p>
+              {renderSection("thousands")}
+            </section>
           </SwiperSlide>
         </Swiper>
         <div className="pagi"></div>
