@@ -99,7 +99,7 @@
   padding: 10px;
 
   input[type="number"] {
-    padding: 10px;
+    padding: 8px;
     width: 60px;
     font-size: 1.2rem;
     text-align: center;
@@ -131,10 +131,16 @@
 }
 
 .pagi h3 {
-  height: 20px;
   color: orange;
   font-weight: 700;
   cursor: pointer;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pagi h3.swiper-pagination-bullet-active {
@@ -147,19 +153,27 @@
 }
 
 .swiper-slide {
-  height: calc(80vh - 100px) !important;
+  // height: calc(80vh - 100px) !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  padding: 75px 0 60px;
   margin-left: 20px;
   overflow-y: auto;
+  height: calc(90vh - 2rem) !important;
+}
+
+.num-card {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .card-btn {
   width: 100%;
+  max-width: 200px;
   display: grid;
-  grid-template-columns: 35% 55%;
+  // grid-template-columns: 35% 55%;
   align-items: center;
   margin: 1rem 0 0;
   .yomikata {
@@ -168,11 +182,11 @@
     color: #fff;
     font-size: 1rem;
     border-radius: 10px;
-
+    width: 200px;
     &.touched {
       background: #fff;
       color: #333;
-      height: 70px;
+      width: 200px;
     }
   }
 }

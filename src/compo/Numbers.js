@@ -15,7 +15,6 @@ import "swiper/css/navigation";
 
 const Wrap = styled.div`
   width: calc(100% - calc(48 / 16 * 1rem));
-  height: 100vh;
   padding: 0 30px;
   border: 2px solid red;
 `;
@@ -68,6 +67,9 @@ export const Numbers = () => {
       if (sectionName === "ten") {
         return [0, 10, 20, 30, 40, 50, 60, 70, 80, 90].includes(index);
       }
+      if (sectionName === "thousands") {
+        return [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].includes(index);
+      }
       // 나머지 모든 항목 표시
       return true;
     };
@@ -82,7 +84,7 @@ export const Numbers = () => {
 
           return (
             <div key={index} className="card-btn">
-              <h3>{item.date}</h3>
+              {/* <h3>{item.date}</h3> */}
               <button
                 className={`yomikata ${
                   state[sectionName][index] ? "touched" : ""
@@ -164,7 +166,7 @@ export const Numbers = () => {
         <Swiper
           direction="vertical"
           slidesPerView={1}
-          spaceBetween={10}
+          spaceBetween={30}
           mousewheel={false}
           pagination={{
             el: ".pagi",
@@ -178,7 +180,7 @@ export const Numbers = () => {
           modules={[Pagination]}
           style={{ height: "100%" }}
         >
-          <SwiperSlide>
+          <SwiperSlide className="swiper-no-swiping">
             <section>
               <h2> binary </h2>
               <div className="num-card">
@@ -187,13 +189,15 @@ export const Numbers = () => {
               </div>
             </section>
           </SwiperSlide>
-          <SwiperSlide>
-            <p>100</p>
-            {renderSection("hundreds")}
+          <SwiperSlide className="swiper-no-swiping">
+            <div className="num-card">
+              <p>100</p>
+              {renderSection("hundreds")}
+            </div>
           </SwiperSlide>
           <SwiperSlide>
             <p>1000</p>
-            {renderSection("thousands")}
+            <div className="num-card">{renderSection("thousands")}</div>
           </SwiperSlide>
         </Swiper>
         <div className="pagi"></div>
