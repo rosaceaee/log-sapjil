@@ -35,45 +35,115 @@ const AnimateExample = () => {
           {/* <p>
             2024
           </p> */}
-          <div className="date">2024.1~2024.7</div>
+          <div className="date">2024.5~now</div>
           <div className="proj-box">
             <div className="contents">
               <ul>
                 <li>
-                  <h2>comp n</h2>
-                  <p>hataraitakoto</p>
+                  <h2>5</h2>
+                  <p>hataraitakoto (total date)</p>
                 </li>
                 <li className="desc-wrapp">
-                  <h3 className="txt-proj-name">pjttit</h3>
-                  <p>asdf</p>
-                  <p>asdf</p>
-                  <p>asdf</p>
+                  <h3 className="txt-proj-name">미래에셋생명 (date)</h3>
+                  <div className="label-wrap">
+                    <span className="label vanilla">dd</span>
+                    <span className="label vanilla">dd</span>
+                  </div>
+                  <p>
+                    작업 생산성을 높이기 위하여 기존 컴포넌트 레거시 코드 수정
+                  </p>
+                  <p>단위, 통합테스트 대응하여 ui 화면 개선</p>
+                  <p>
+                    イベントページの簡単ゲームのコード仕組み作成などの簡単なイベント関数の運用
+                  </p>
                   <p>asdf</p>
                 </li>
                 <li className="desc-wrapp">
-                  <h3 className="txt-proj-name">pjttit</h3>
-                  <p>asdf</p>
-                  <p>asdf</p>
-                  <p>asdf</p>
-                  <p>asdf</p>
+                  <h3 className="txt-proj-name">eruji (date)</h3>
+                  <div className="label-wrap">
+                    <span className="label vanilla">dd</span>
+                    <span className="label vanilla">dd</span>
+                  </div>
+                  <p>헝가리, 오스트리아 사이트 UIUX 구축 및 운영</p>
+                  <p>결제 모듈 ui영역 개선 담당</p>
+                  <p>기존 ui관련 레거시 코드 개선</p>
+                  <p>
+                    다른 다국어 사이트와 균일한 ui 구현을 위하여 컴포넌트 디자인
+                    개선
+                  </p>
                 </li>
-                <li>dd</li>
-                <li>dd</li>
+                <li className="desc-wrapp">
+                  <h3 className="txt-proj-name">enu b (date)</h3>
+                  <div className="label-wrap">
+                    <span className="label vanilla">dd</span>
+                    <span className="label vanilla">dd</span>
+                  </div>
+                  <p>
+                    ui디자인 일관성과 생산성을 높이기 위한 컴포넌트 시스템 개선
+                    및 참여
+                  </p>
+                  <p>단위, 통합테스트 대응하여 ui 화면 개선</p>
+                  <p>다국어 사이트 반영 담당</p>
+                </li>
               </ul>
             </div>
 
             <div className="contents">
               <ul>
                 <li>
-                  <h2>comp n</h2>
+                  <h2>구름기계</h2>
                   <p>hataraitakoto</p>
                 </li>
                 <li className="desc-wrapp">
-                  <h3 className="txt-proj-name">pjttit</h3>
+                  <h3 className="txt-proj-name">최선어학원 creo 유지보수</h3>
+                  <div className="label-wrap">
+                    <span className="label vanilla">dd</span>
+                    <span className="label vanilla">dd</span>
+                  </div>
                   <p>asdf</p>
                   <p>asdf</p>
                   <p>asdf</p>
                   <p>asdf</p>
+                </li>
+                <li className="desc-wrapp">
+                  <h3 className="txt-proj-name">metaexam 영어시험 구축</h3>
+                  <div className="label-wrap">
+                    <span className="label vanilla">dd</span>
+                    <span className="label vanilla">dd</span>
+                  </div>
+                  <p>asdf</p>
+                  <p>asdf</p>
+                  <p>asdf</p>
+                  <p>asdf</p>
+                </li>
+                <li className="desc-wrapp">
+                  <h3 className="txt-proj-name">
+                    phonics monster 교육 툴 유지보수
+                  </h3>
+                  <div className="label-wrap">
+                    <span className="label vanilla">dd</span>
+                    <span className="label vanilla">dd</span>
+                  </div>
+                  <p>레거시 코드 정리 및 전체 소스 리팩토링</p>
+                  <p>asdf</p>
+                </li>
+                <li className="desc-wrapp">
+                  <h3 className="txt-proj-name">루시드 영어</h3>
+                  <div className="label-wrap">
+                    <span className="label vanilla">dd</span>
+                    <span className="label vanilla">dd</span>
+                  </div>
+                  <p>학원 교육 부교재용 앱 구축 및 운영</p>
+                  <p>asdf</p>
+                </li>
+              </ul>
+            </div>
+
+            <div className="contents">
+              <ul>
+                <li>
+                  <h2>잡코리아</h2>
+                  <p>hataraitakoto</p>
                 </li>
                 <li className="desc-wrapp">
                   <h3 className="txt-proj-name">pjttit</h3>
@@ -88,20 +158,18 @@ const AnimateExample = () => {
             <div className="contents">
               <ul>
                 <li>
-                  <h2>comp n</h2>
+                  <h2>rinukusu</h2>
                   <p>hataraitakoto</p>
                 </li>
                 <li className="desc-wrapp">
-                  <h3 className="txt-proj-name">pjttit</h3>
-                  <p>asdf</p>
+                  <h3 className="txt-proj-name">seoul woman uni child dept.</h3>
+                  <p></p>
                   <p>asdf</p>
                   <p>asdf</p>
                   <p>asdf</p>
                 </li>
                 <li className="desc-wrapp">
-                  <h3 className="txt-proj-name">pjttit</h3>
-                  <p>asdf</p>
-                  <p>asdf</p>
+                  <h3 className="txt-proj-name">ssmedipia </h3>
                   <p>asdf</p>
                   <p>asdf</p>
                 </li>
@@ -117,30 +185,67 @@ const AnimateExample = () => {
           {/* <p>
             2024
           </p> */}
-          <div className="date">2024.1~2024.7</div>
+          {/* <div className="date">Others</div> */}
           <div className="proj-box">
             <div className="contents">
               <ul>
                 <li>
-                  <h2>comp n</h2>
-                  <p>hataraitakoto</p>
+                  <h2>개인작업 </h2>
                 </li>
                 <li className="desc-wrapp">
-                  <h3 className="txt-proj-name">pjttit</h3>
-                  <p>asdf</p>
-                  <p>asdf</p>
-                  <p>asdf</p>
-                  <p>asdf</p>
+                  <h3 className="txt-proj-name">ㅇㅇ</h3>
+                  <p>
+                    가벼운 원페이지로 작업. 숫자 입력하면 단번에 알 수 있도록.
+                  </p>
+                  <p>링크</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* box3 */}
+        <div className="box">
+          {/* <p>
+            2024
+          </p> */}
+          {/* <div className="date">Others</div> */}
+          <div className="proj-box">
+            <div className="contents">
+              <ul>
+                <li>
+                  <h2>Others </h2>
                 </li>
                 <li className="desc-wrapp">
-                  <h3 className="txt-proj-name">pjttit</h3>
-                  <p>asdf</p>
-                  <p>asdf</p>
-                  <p>asdf</p>
-                  <p>asdf</p>
+                  <h3 className="txt-proj-name">MDN 웹 번역 기여</h3>
+                  <p>
+                    outerHeight
+                    https://developer.mozilla.org/ko/docs/Web/API/Window/outerHeight
+                  </p>
+                  <p>
+                    device memory api
+                    https://developer.mozilla.org/ko/docs/Web/API/Device_Memory_API
+                  </p>
+                  <p>
+                    tabindex
+                    https://developer.mozilla.org/ko/docs/Web/API/HTMLElement/tabIndex
+                  </p>
+                  <p>
+                    clipboard
+                    https://developer.mozilla.org/ko/docs/Web/API/Navigator/clipboard
+                  </p>
                 </li>
-                <li>dd</li>
-                <li>dd</li>
+                <li className="desc-wrapp">
+                  <h3 className="txt-proj-name">regexlearn 한국어 번역 기여</h3>
+                  <p>
+                    한국어 학습자의 원활한 학습에 도움이 되고 있을거라고 믿음
+                  </p>
+                  <p>
+                    부자연스러운 문장 교정하여 한국어 사용자의 학습에 기여함.
+                  </p>
+                  <p>링크: https://regexlearn.com/ko</p>
+                  <p>https://github.com/aykutkardas/regexlearn.com</p>
+                </li>
               </ul>
             </div>
 

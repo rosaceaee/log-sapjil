@@ -3,6 +3,17 @@
   padding: 0;
 }
 
+//  font
+@font-face {
+  font-family: "GangwonEduPowerExtraBoldA";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+//
+
 .App {
   overflow: hidden !important;
 }
@@ -380,6 +391,12 @@ article {
         .desc-wrapp {
           margin: 1rem 0 0.5rem;
           list-style: none;
+          p {
+            line-height: 1.7;
+            &:nth-child(2) {
+              margin-top: 0.5rem;
+            }
+          }
         }
       }
     }
