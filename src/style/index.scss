@@ -203,6 +203,12 @@
   }
 }
 
+article {
+  bottom: -1rem;
+  width: 100%;
+  transform: translate(-0rem, -1rem);
+}
+
 .wrap-work {
   background: #eee;
   // border-radius: 69% 25% 25% 25% / 91% 15% 0% 0%;
@@ -219,7 +225,9 @@
   .desc-wrap {
     &__work {
       width: 100%;
+      overflow: auto;
       padding: 0;
+      height: calc(100vh - 2rem);
       .box {
         border: 1px solid #ddd;
         display: grid;
@@ -256,24 +264,31 @@
 
 .animate-wrap {
   animation: bounceToUp 1s cubic-bezier(0.79, -0.3, 0.22, 1.47) forwards;
-  transform: scale(0.4);
 }
-@keyframes bounceToUp {
-  0% {
-    transform: scale(0.5);
-  }
-  90% {
-    height: 99vh;
-  }
-  100% {
-    top: 0;
-    height: 100vh;
-    transform: scale(1);
-  }
-}
+// @keyframes bounceToUp {
+//   0% {
+//     transform: scale(0.7) translate(-30rem, 10rem, 0rem);
+//     height: 10vh;
+//     margin-bottom: -10rem;
+//   }
+//   50% {
+//     height: 40vh;
+//   }
+//   90% {
+//     height: 90vh;
+//   }
+//   100% {
+//     margin-bottom: 0;
+//     width: 100vw;
+//     height: 100vh;
+//     transform: scale(1) translate(0, 0);
+//     margin-bottom: 0;
+//   }
+// }
 
 .wave {
   margin-bottom: -4px;
+  width: 100vw;
 }
 
 .error-msg {
@@ -284,4 +299,89 @@
   font-size: 1.3rem;
   font-weight: 700;
   margin: 1.4rem auto;
+}
+
+.animate__slideInUp {
+  -webkit-animation: slideInUp;
+  animation: slideInUp;
+}
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.up {
+  h3 {
+    display: none;
+  }
+
+  .active {
+    display: block;
+    border: 1px solid red;
+  }
+}
+
+.desc-wrap {
+  border: 2px solid;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .img {
+    width: 100%;
+    height: 200px;
+  }
+
+  span {
+    width: 100%;
+    height: calc(200px - 40px);
+    border: 1px solid;
+    position: relative;
+    left: -2rem;
+  }
+}
+
+.introduce-wrap {
+  .proj-box {
+    .contents {
+      ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 30px;
+        border: 1px solid;
+        max-width: 600px;
+        // max-width: 200px; mobile
+        margin: 0 auto;
+        text-align: left;
+        li {
+          & > h2 {
+            text-align: left;
+          }
+
+          h3 {
+            &.txt-proj-name {
+              font-size: calc(17 / 16 * 1rem);
+              list-style: none;
+            }
+          }
+        }
+
+        .desc-wrapp {
+          margin: 1rem 0 0.5rem;
+          list-style: none;
+        }
+      }
+    }
+  }
 }
