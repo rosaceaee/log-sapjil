@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/log-sapjil/static/css/main.c550a5eb.css",
+    "main.js": "/log-sapjil/static/js/main.76844a5e.js",
+    "static/js/453.20b23115.chunk.js": "/log-sapjil/static/js/453.20b23115.chunk.js",
+    "static/media/logo.svg": "/log-sapjil/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/log-sapjil/index.html",
+    "main.c550a5eb.css.map": "/log-sapjil/static/css/main.c550a5eb.css.map",
+    "main.76844a5e.js.map": "/log-sapjil/static/js/main.76844a5e.js.map",
+    "453.20b23115.chunk.js.map": "/log-sapjil/static/js/453.20b23115.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c550a5eb.css",
+    "static/js/main.76844a5e.js"
+  ]
+}
