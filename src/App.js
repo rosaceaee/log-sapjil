@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useMemo } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Main from "./compo/Main";
+import "./style/index.scss";
 import { Numbers } from "./compo/Numbers";
 import AnimateExample from "./compo/AnimateExample";
 function App() {
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       {/* <Main {...ell} /> */}
-      <AnimateExample />
+      <Numbers />
     </div>
   );
 }
