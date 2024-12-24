@@ -4,6 +4,7 @@
 }
 
 //  font
+// 1. bold face
 @font-face {
   font-family: "GangwonEduPowerExtraBoldA";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
@@ -12,10 +13,27 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "LINESeedKR-Bd";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TAEBAEKfont";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/TAEBAEKfont.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 //
 
 .App {
   overflow: hidden !important;
+  font-family: "LINESeedKR-Bd";
 }
 
 .ant-row {
@@ -101,18 +119,19 @@
   top: 0;
   margin-bottom: 3rem;
   height: 70px;
-  border: 1px solid;
+  border-bottom: 3px solid #dad7d7;
   width: 100%;
   left: 0;
-  background: #fff;
+  background: #f8f2ed;
   z-index: 9999;
-  padding: 10px;
+  padding: 15px 0;
 
   input[type="number"] {
     padding: 8px;
     width: 60px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
+    border-radius: 6px;
   }
 
   .showNum-box {
@@ -120,47 +139,77 @@
       color: #333;
       font-weight: 700;
       font-size: calc(20 / 16 * 1rem);
+      margin-top: 5px;
     }
   }
 }
 
+.card-container {
+  border: 1px solid red;
+}
 .pagi {
   position: fixed;
   left: 0;
-  bottom: 0;
-  width: calc(70 / 16 * 1rem);
-  height: 100%;
-  border: 1px solid;
+  bottom: 0rem;
+  width: calc(80 / 16 * 1rem);
+  height: calc(100vh - 6rem);
+  // border: 1px solid;
   font-size: 1rem;
   z-index: 999;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
   gap: 2rem;
+
+  &:after {
+    content: "";
+    background: #ddd;
+    width: 1px;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+  }
 }
 
 .pagi h3 {
   color: #fff;
-  background: #332e3c;
+  // background: #332e3c;
+  background: #4e99db;
   font-weight: 700;
   cursor: pointer;
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  border-top: 1px solid;
-  border-left: 1px solid;
-  border-bottom: 1px solid;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: auto;
+  border-top-left-radius: 13px;
+  border-bottom-left-radius: 13px;
+  z-index: 9997;
+  &:nth-child(1) {
+    margin-top: 2rem;
+  }
 }
 
 .pagi h3.swiper-pagination-bullet-active {
   color: #332e3c;
   background-color: #fff;
+  &:after {
+    content: "";
+
+    background: #fff;
+    width: 1px;
+    height: 60px;
+    position: absolute;
+    right: 0rem;
+    z-index: 9999;
+  }
 }
 
 .swiper {
@@ -170,30 +219,40 @@
 
 .swiper-slide {
   height: 100% !important;
+  width: 100vw;
 }
 
 .card-wrap {
   overflow: auto;
   padding-bottom: 10rem;
-}
 
-.num-card {
-  height: 100%;
-  padding: 100px 0 0;
-  margin-left: 70px;
   overflow-y: auto;
+  padding-bottom: 10rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.num-card {
+  height: 100%;
+  padding: 100px 0px 0;
+  margin-left: 73px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .card-btn {
   width: 100%;
-  max-width: 200px;
-  display: grid;
-  // grid-template-columns: 35% 55%;
+  max-width: 150px;
+  display: flex;
+  overflow: visible;
   align-items: center;
   margin: 1rem 0 0;
+  justify-content: center;
 
   .yomikata {
     padding: 1rem;
@@ -201,15 +260,17 @@
     color: #fff;
     font-size: 1rem;
     border-radius: 10px;
-    width: 200px;
-    letter-spacing: 10px;
+    width: 100%;
+    letter-spacing: 7.3px;
+    font-family: "TAEBAEKfont";
     &.touched {
       background: #fff;
       color: #333;
       width: 200px;
       letter-spacing: 1.5px;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1rem;
+      font-family: "TAEBAEKfont";
     }
   }
 }
@@ -276,26 +337,26 @@ article {
 .animate-wrap {
   animation: bounceToUp 1s cubic-bezier(0.79, -0.3, 0.22, 1.47) forwards;
 }
-// @keyframes bounceToUp {
-//   0% {
-//     transform: scale(0.7) translate(-30rem, 10rem, 0rem);
-//     height: 10vh;
-//     margin-bottom: -10rem;
-//   }
-//   50% {
-//     height: 40vh;
-//   }
-//   90% {
-//     height: 90vh;
-//   }
-//   100% {
-//     margin-bottom: 0;
-//     width: 100vw;
-//     height: 100vh;
-//     transform: scale(1) translate(0, 0);
-//     margin-bottom: 0;
-//   }
-// }
+@keyframes bounceToUp {
+  0% {
+    transform: scale(0.7) translate(-30rem, 10rem, 0rem);
+    height: 10vh;
+    margin-bottom: -10rem;
+  }
+  50% {
+    height: 40vh;
+  }
+  90% {
+    height: 90vh;
+  }
+  100% {
+    margin-bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: scale(1) translate(0, 0);
+    margin-bottom: 0;
+  }
+}
 
 .wave {
   margin-bottom: -4px;
@@ -304,6 +365,7 @@ article {
 
 .error-msg {
   font-size: 1rem;
+  color: #d74e38;
 }
 
 .title {
