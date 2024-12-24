@@ -16,7 +16,7 @@ import "swiper/css/navigation";
 const Wrap = styled.div`
   width: calc(100% - calc(48 / 16 * 1rem));
   height: 100vh;
-  padding: 0 30px;
+  padding: 0;
   overflow-y: hidden;
 `;
 
@@ -118,7 +118,7 @@ export const Numbers = () => {
         return matchingItem.title;
       }
     }
-    return <span className="error-msg">숫자를 입력해주세요.</span>;
+    return <span className="error-msg">알고싶은 숫자를 입력해주세요.</span>;
   };
 
   const handleInputChange = (e) => {
@@ -150,7 +150,7 @@ export const Numbers = () => {
           <input
             type="number"
             pattern="\d*"
-            inputmode="numeric"
+            inputMode="numeric"
             placeholder="예: 10"
             value={input}
             onChange={handleInputChange}
