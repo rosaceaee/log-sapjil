@@ -16,6 +16,7 @@ import "./style/index.scss";
 import { Numbers } from "./compo/Numbers";
 import AnimateExample from "./compo/AnimateExample";
 import { Todos } from "./Todos";
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -34,7 +35,15 @@ function App() {
   // }, [num]);
 
   // const ell = { num, setNum, computedValue };
-
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        staleTime: 0,
+        cacheTime: 0,
+      },
+    },
+  });
   return (
     <div className="App">
       {/* <Main {...ell} /> */}

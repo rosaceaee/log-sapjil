@@ -1,44 +1,39 @@
-import React, { useState, useEffect, useContext, useMemo } from "react";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "react-query";
-
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import { getTodos, postTodos, deleteTodos } from "./data/todos";
-
-const queryClient = new QueryClient();
-
 export const Todos = () => {
-  const { data } = useQuery("todos", getTodos);
+  const queryClient = useQueryClient();
+  const { data, refetch } = useQuery("todos", getTodos);
+
   const mutation = useMutation(postTodos, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("todos");
+    onSuccess: async () => {
+      // 쿼리 무효화 후 즉시 새로운 데이터 fetch
+      await queryClient.invalidateQueries("todos");
+      await refetch();
     },
   });
 
-  const mutationDelete = useMutation(deleteTodos, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("todos");
-    },
-  });
+  const addTodo = async () => {
+    const existingIds = new Set(data?.map((todo) => todo.id) || []);
+    let newId = 1;
 
-  const addTodo = () => {
-    mutation.mutate({
-      title: "tit",
-      body: "desc",
-    });
+    while (existingIds.has(newId)) {
+      newId++;
+    }
+
+    try {
+      await mutation.mutateAsync({
+        id: newId,
+        title: `title ${newId}`,
+        body: `desc ${newId}번째 `,
+      });
+    } catch (error) {
+      console.error("Error adding todo:", error);
+    }
   };
 
-  const remove = (id) => {
-    mutationDelete.mutate(id);
-  };
   return (
     <div>
       <h1>test</h1>
-
       <ul>
         {data?.map((todo) => (
           <li key={todo.id}>
@@ -49,7 +44,7 @@ export const Todos = () => {
       </ul>
 
       <button onClick={addTodo} disabled={mutation.isLoading}>
-        {mutation.isLoading ? "기달" : "항목 추가zz"}
+        {mutation.isLoading ? "기달" : "항목 추가"}
       </button>
     </div>
   );
